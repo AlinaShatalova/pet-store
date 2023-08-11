@@ -1,0 +1,140 @@
+@use '../../assets/colors.scss' as color;
+
+.card {
+  position: relative;
+  width: 320px;
+  height: 480px;
+
+  background: linear-gradient(135deg, transparent 31px, color.$blue 0), 0 0 no-repeat;
+
+  border-radius: 12px;
+  cursor: pointer;
+
+  &__inner {
+    position: absolute;
+
+    top: 4px;
+    left: 4px;
+
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+
+    background:
+      linear-gradient(135deg, transparent 30px, color.$light-gray 0),
+      0 0,
+      no-repeat;
+
+    border-radius: 12px * 0.75;
+    // z-index: -1;
+    overflow: hidden;
+  }
+
+  &__texts {
+    margin-top: 17px;
+    margin-left: 47px;
+  }
+
+  p {
+    margin-block-start: 0;
+    margin-block-end: 0
+  }
+
+  &__title {
+    padding-bottom: 5px;
+    color: color.$text-gray;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    font-feature-settings: 'clig' off, 'liga' off;
+  }
+
+  &__name {
+    color: color.$black;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  &__taste {
+    padding-bottom: 15px;
+    color: color.$black;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__amount {
+    max-width: 130px;
+    color: color.$text-gray;
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &__weight {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    padding-top: 20px;
+
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 42px;
+    line-height: 22px;
+
+    border-radius: 50%;
+    color: color.$white;
+    background-color: color.$accent-blue;
+
+    box-sizing: border-box;
+    z-index: 10;
+
+    span {
+      font-size: 21px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+    // z-index: -1;
+
+    img {
+      position: absolute;
+
+      left: -24px;
+      bottom: -92px;
+    }
+  }
+
+  &__bottom-text {
+    position: absolute;
+    left: 50%;
+    bottom: -27px;
+    width: max-content;
+    transform: translateX(-50%);
+    font-size: 13px;
+    font-family: Trebuchet MS, sans-serif;
+    color: color.$white;
+
+    span {
+      color: color.$accent-blue;
+      font-weight: 700;
+      border: none;
+      border-bottom: 2px dashed color.$accent-blue;
+      cursor: pointer;
+    }
+  }
+}

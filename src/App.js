@@ -1,8 +1,11 @@
-import './App.css';
+import Section from './components/Section/Section';
+import styles from './App.module.scss';
 
 function App() {
   return (
-    <div />
+    <div className={styles["app"]}>
+      <Section title={"Ты сегодня покормил кота?"} />
+    </div>
   );
 }
 
