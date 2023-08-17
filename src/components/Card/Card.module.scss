@@ -1,5 +1,14 @@
 @use '../../assets/colors.scss' as color;
 
+p {
+  margin-block-start: 0;
+  margin-block-end: 0
+}
+
+.container {
+  position: relative;
+}
+
 .card {
   position: relative;
   width: 320px;
@@ -20,23 +29,17 @@
     height: calc(100% - 8px);
 
     background:
-      linear-gradient(135deg, transparent 30px, color.$light-gray 0),
+      linear-gradient(135deg, transparent 30px, color.$bg-gray 0),
       0 0,
       no-repeat;
 
     border-radius: 12px * 0.75;
-    // z-index: -1;
     overflow: hidden;
   }
 
   &__texts {
     margin-top: 17px;
     margin-left: 47px;
-  }
-
-  p {
-    margin-block-start: 0;
-    margin-block-end: 0
   }
 
   &__title {
@@ -64,7 +67,9 @@
     font-weight: 700;
   }
 
-  &__amount {
+  &__amount,
+  &__gift,
+  &__customer-happy {
     max-width: 130px;
     color: color.$text-gray;
     font-family: Trebuchet MS, sans-serif;
@@ -109,7 +114,6 @@
 
     width: 100%;
     height: 100%;
-    // z-index: -1;
 
     img {
       position: absolute;
@@ -119,10 +123,10 @@
     }
   }
 
-  &__bottom-text {
+  &__bottom_default {
     position: absolute;
     left: 50%;
-    bottom: -27px;
+    bottom: -28px;
     width: max-content;
     transform: translateX(-50%);
     font-size: 13px;
