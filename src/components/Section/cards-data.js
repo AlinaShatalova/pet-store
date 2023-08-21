@@ -45,6 +45,6 @@ export const data = [
     bottomTextSelected: 'Филе из цыплят с трюфелями в бульоне.',
     bottomTextDisabled: 'Печалька, с курой закончился.',
     action: 'купи.',
-    isDisabled: false,
+    isDisabled: true,
   },
 ];

@@ -1,13 +1,19 @@
-import {useState, useMemo} from "react";
+import {useState, useMemo, useCallback} from "react";
 import cat from "../../images/cat.png";
+import classNames from "classnames";
 import styles from "./Card.module.scss";
+
+const SELECTEDHOVER_TITLE = "Котэ не одобряет?";
 
 const Card = ({data}) => {
   const [isSelected, setIsSelected] = useState(false);
-  const isDefault = !isSelected && !data.isDisabled;
+  const [titleText, setTitleText] = useState(data.title);
+
+  const {isDisabled} = data;
+  const isDefault = !isSelected && !isDisabled;
 
   const bottomText = useMemo(() => {
-    if (data.isDisabled) {
+    if (isDisabled) {
       return data.bottomTextDisabled;
     }
 
@@ -21,23 +27,44 @@ const Card = ({data}) => {
     data.bottomTextDefault,
     data.bottomTextSelected,
     data.bottomTextDisabled,
-    data.isDisabled,
+    isDisabled,
   ]);
 
-  const cardClickHandler = () => {
-    // useCallback
+  const cardClickHandler = useCallback(() => {
     setIsSelected(!isSelected);
+  }, [isSelected]);
+
+  const mouseEnterHandler = () => {
+    if (isSelected) {
+      setTitleText(SELECTEDHOVER_TITLE);
+    }
+  };
+
+  const mouseLeaveHandler = () => {
+    setTitleText(data.title);
   };
 
   return (
     <div className={styles["container"]}>
       <div
-        className={styles["card"]}
-        onClick={cardClickHandler}
+        className={classNames(styles["card"], {
+          [styles["card-selected"]]: isSelected,
+          [styles["card-disabled"]]: isDisabled,
+        })}
+        onClick={isDisabled ? () => {} : cardClickHandler}
+        onMouseEnter={mouseEnterHandler}
+        onMouseLeave={mouseLeaveHandler}
       >
         <div className={styles["card__inner"]}>
           <div className={styles["card__texts"]}>
-            <p className={styles["card__title"]}>{data.title}</p>
+            <p
+              className={classNames(styles["card__title"], {
+                [styles["card__title-selectedhover"]]:
+                  titleText === SELECTEDHOVER_TITLE && isSelected,
+              })}
+            >
+              {isSelected ? titleText : data.title}
+            </p>
             <p className={styles["card__name"]}>{data.name}</p>
             <p className={styles["card__taste"]}>{data.taste}</p>
             <p className={styles["card__amount"]}>{data.amount}</p>
@@ -61,7 +88,11 @@ const Card = ({data}) => {
           </div>
         </div>
       </div>
-      <p className={styles["card__bottom_default"]}>
+      <p
+        className={classNames(styles["card__bottom"], {
+          [styles["card__bottom-disabled"]]: isDisabled,
+        })}
+      >
         {bottomText}{" "}
         {isDefault ? <span onClick={cardClickHandler}>{data.action}</span> : ""}
       </p>
