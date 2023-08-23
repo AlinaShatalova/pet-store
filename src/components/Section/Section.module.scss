@@ -1,8 +1,9 @@
 @use '../../assets/colors.scss' as color;
+@use '../../assets/screen-sizes.scss' as size;
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100&display=swap');
 
 .section {
-  padding: 36px 80px 0 80px;
+  padding: 36px 80px 60px 80px;
 
   &__header {
     margin-block-start: 0;
@@ -24,5 +25,18 @@
     align-items: center;
     gap: 80px;
     margin-top: 25px;
+  }
+}
+
+@media (max-width: size.$wide-tablet) {
+  .section__cards {
+    gap: 60px;
+  }
+}
+
+@media (max-width: size.$mobile) {
+  .section__header {
+    font-size: 28px;
+    line-height: 34px;
   }
 }
