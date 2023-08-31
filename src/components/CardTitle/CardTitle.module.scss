@@ -1,0 +1,20 @@
+@use '../../assets/colors.scss' as color;
+@use '../../assets/screen-sizes.scss' as size;
+
+.title {
+  padding-bottom: 5px;
+  color: color.$text-gray;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  font-feature-settings: 'clig' off, 'liga' off;
+
+  &-selectedhover {
+    color: color.$hover-pink;
+  }
+}
+
+@media (max-width: size.$mobile) {
+  .title {
+    padding-bottom: 0;
+  }
+}

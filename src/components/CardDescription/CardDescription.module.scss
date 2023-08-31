@@ -1,0 +1,29 @@
+  @use '../../assets/colors.scss' as color;
+
+  .description {
+    position: absolute;
+    left: 50%;
+    bottom: -28px;
+    width: max-content;
+    transform: translateX(-50%);
+    font-size: 13px;
+    font-family: Trebuchet MS, sans-serif;
+    color: color.$white;
+
+    span {
+      color: color.$accent-blue;
+      font-weight: 700;
+      border: none;
+      border-bottom: 2px dashed color.$accent-blue;
+      transition: background-color 0.3s ease-out;
+      cursor: pointer;
+
+      &:hover {
+        color: color.$hover-blue;
+      }
+    }
+
+    &-disabled {
+      color: color.$yellow;
+    }
+  }

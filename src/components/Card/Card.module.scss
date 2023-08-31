@@ -92,18 +92,6 @@ p {
     margin-left: 47px;
   }
 
-  &__title {
-    padding-bottom: 5px;
-    color: color.$text-gray;
-    font-family: 'Trebuchet MS', sans-serif;
-    font-size: 16px;
-    font-feature-settings: 'clig' off, 'liga' off;
-
-    &-selectedhover {
-      color: color.$hover-pink;
-    }
-  }
-
   &__name {
     color: color.$black;
     font-feature-settings: 'clig' off, 'liga' off;
@@ -178,37 +166,9 @@ p {
       bottom: -92px;
     }
   }
-
-  &__bottom {
-    position: absolute;
-    left: 50%;
-    bottom: -28px;
-    width: max-content;
-    transform: translateX(-50%);
-    font-size: 13px;
-    font-family: Trebuchet MS, sans-serif;
-    color: color.$white;
-
-    span {
-      color: color.$accent-blue;
-      font-weight: 700;
-      border: none;
-      border-bottom: 2px dashed color.$accent-blue;
-      transition: background-color 0.3s ease-out;
-      cursor: pointer;
-
-      &:hover {
-        color: color.$hover-blue;
-      }
-    }
-
-    &-disabled {
-      color: color.$yellow;
-    }
-  }
 }
 
-@media (max-width: size.$wide-tablet) {
+@media (max-width: size.$tablet) {
   .card {
     width: 300px;
     height: 450px;
@@ -218,8 +178,6 @@ p {
     }
   }
 }
-
-@media (max-width: size.$tablet) {}
 
 @media (max-width: size.$mobile) {
   .card {
