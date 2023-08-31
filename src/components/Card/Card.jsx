@@ -1,9 +1,11 @@
 import { useState, useMemo, useCallback } from 'react';
 import cat from '../../images/cat.png';
 import classNames from 'classnames';
-import styles from './Card.module.scss';
 import CardDescription from '../CardDescription/CardDescription';
 import CardTitle from '../CardTitle/CardTitle';
+import PropTypes from 'prop-types';
+import { cardState as state } from '../../constants';
+import styles from './Card.module.scss';
 
 const Card = ({ data }) => {
   const [isSelected, setIsSelected] = useState(false);
@@ -13,14 +15,14 @@ const Card = ({ data }) => {
 
   const cardState = useMemo(() => {
     if (isDisabled) {
-      return 'disabled';
+      return state.disabled;
     }
 
     if (isSelected) {
-      return 'selected';
+      return state.selected;
     }
 
-    return 'default';
+    return state.default;
   }, [isSelected, isDisabled]);
 
   const cardClickHandler = useCallback(() => {
@@ -79,6 +81,27 @@ const Card = ({ data }) => {
       />
     </div>
   );
+};
+
+Card.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    taste: PropTypes.string,
+    amount: PropTypes.string,
+    gift: PropTypes.string,
+    weight: PropTypes.shape({
+      value: PropTypes.string,
+      unit: PropTypes.string,
+    }),
+    description: PropTypes.shape({
+      default: PropTypes.string,
+      selected: PropTypes.string,
+      disabled: PropTypes.string,
+    }),
+    action: PropTypes.string,
+    isDisabled: PropTypes.bool,
+  }),
 };
 
 export default Card;
