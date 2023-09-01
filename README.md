@@ -1,5 +1,5 @@
 ## Demo
-
+https://alinashatalova.github.io/pet-store/
 
 ## Used technologies
 - React
