@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pet-store/static/css/main.708e8741.css",
+    "main.js": "/pet-store/static/js/main.aa089bd0.js",
+    "static/media/cat.png": "/pet-store/static/media/cat.22c79082392189fbda9e.png",
+    "static/media/pattern.png": "/pet-store/static/media/pattern.8b93e2127ee44e2a8146.png",
+    "index.html": "/pet-store/index.html",
+    "main.708e8741.css.map": "/pet-store/static/css/main.708e8741.css.map",
+    "main.aa089bd0.js.map": "/pet-store/static/js/main.aa089bd0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.708e8741.css",
+    "static/js/main.aa089bd0.js"
+  ]
+}
