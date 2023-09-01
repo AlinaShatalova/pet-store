@@ -1,3 +1,7 @@
-# Pet shop product card list
+## Demo
 
-Work in progress
+
+## Used technologies
+- React
+- CSS-modules (SCSS)
+- PropTypes for types checking
